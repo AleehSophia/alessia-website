@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:wght@100;400&family=Smooch&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/logo.io.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <title>Alessia Portifolio</title>
+</head>
+
+<body>
+<header>
+    <div class="header-icons">
+        <div class="linkedin-img">
+            <a href="https://www.linkedin.com/in/alessia-casado/" target="_blank">
+                <img width="28px" src="assets/linkedin.png" alt="linkedin">
+            </a>
+        </div>
+        <div class="github-img">
+            <a href="https://github.com/AleehSophia" target="_blank">
+                <img width="28px" src="assets/github.png" alt="github">
+            </a>
+        </div>
+        <div class="pinterest-img">
+            <a href="https://br.pinterest.com/AleehSophia/" target="_blank">
+                <img width="28px" src="assets/pinterest.png" alt="pinterest">
+            </a>
+        </div>
+    </div>
+</header>
+<div class="header-inicio" align="center">
+    <h1>Alessia Casado</h1>
+</div>
+<nav class="navbar">
+    <div class="navbar-menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">About Me</a></li>
+            <li><a href="https://ko-fi.com/alessiacasado" target="_blank">Ko-fi</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="card">
+    <div class="card-one">
+        <div class="card-one-content">
+            <img width="50" src="assets/books.png">
+            <div class="card-text">
+                <p>Alguma coisa que será aqui</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-two">
+        <div class="card-two-content">
+            <img width="50" src="assets/notion.png">
+            <div class="card-text">
+                <p>Check my Notion templates.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-three">
+        <div class="card-three-content">
+            <img width="50" src="assets/notion.png">
+            <div class="card-text">
+                <p>Check my widgets.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="carrossel">
+    <div class="gallery-wrapper">
+        <div class="gallery">
+            <button class="arrow-left control" aria-label="Previous Image">&#5130</button>
+            <button class="arrow-right control" aria-label="Next Image">&#5125</button>
+            <div class="item-gallery">
+                <img src="assets/planner-template-notion.png" alt="beach" class="item current-item">
+                <p class="text-item">2024 Planner - Notion template.</p>
+            </div>
+            <div class="item-gallery">
+                <img src="assets/university-template-notion.png" alt="technology" class="item">
+                <p class="text-item">College Journal - Notion template.</p>
+            </div>
+            <div class="item-gallery">
+                <img src="assets/kdrama-template-notion.png" alt="cats" class="item">
+                <p class="text-item">K-Dramas watchlist - Notion template.</p>
+            </div>
+            <div class="item-gallery">
+                <img src="assets/books-template-notion.png" alt="cats" class="item">
+                <p class="text-item">
+                    Reading List - Notion template.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>Made with ❤️ by Alessia.</p>
+    </div>
+</footer>
+
+<script>
+    const controls = document.querySelectorAll('.control');
+
+    let currentItem = 0;
+    const items = document.querySelectorAll('.item');
+    const maxItems = items.length;
+
+    controls.forEach((control) => {
+        control.addEventListener("click", () => {
+            const isLeft = control.classList.contains("arrow-left");
+            if (isLeft) {
+                currentItem -= 1;
+            } else {
+                currentItem += 1;
+            }
+
+            if (currentItem >= maxItems) {
+                currentItem = 0;
+            }
+            if (currentItem < 0) {
+                currentItem = maxItems - 1;
+            }
+
+            items.forEach(item => item.classList.remove('current-item'));
+            items[currentItem].scrollIntoView({
+               inline: "center",
+               behavior: "smooth"
+            });
+            items[currentItem].classList.add('current-item');
+        });
+    });
+</script>
+</body>
+</html>
